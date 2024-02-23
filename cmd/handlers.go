@@ -146,41 +146,6 @@ func (a *App) HandleGetRecords(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (a *App) HandleInMemory(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "GET" {
-		key := r.URL.Query().Get("key")
-		value, ok := a.Config.MemoryDB[key]
-		if !ok {
-			respondWithError(w, http.StatusNotFound, "key not found!")
-			return
-		}
-
-		respondWithJSON(w, http.StatusOK, map[string]string{
-			"key":   key,
-			"value": value,
-		})
-		return
-	} else if r.Method == "POST" {
-		type request struct {
-			Key   string `json:"key"`
-			Value string `json:"value"`
-		}
-		var req request
-		decoder := json.NewDecoder(r.Body)
-		if err := decoder.Decode(&req); err != nil {
-			respondWithError(w, http.StatusBadRequest, "can not decode request body!")
-		}
-
-		a.Config.MemoryDB[req.Key] = req.Value
-		respondWithJSON(w, http.StatusCreated, map[string]string{
-			"key":   req.Key,
-			"value": a.Config.MemoryDB[req.Key],
-		})
-		return
-	}
-	respondWithError(w, http.StatusMethodNotAllowed, "method not allowed")
-}
-
 func (a *App) HandleGetInMemory(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
 		respondWithError(w, http.StatusMethodNotAllowed, "method not allowed")

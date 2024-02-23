@@ -82,7 +82,7 @@ This endpoint is used to store data in a in-memory database.
 
 ---
 
-### ```POST /api/memory```
+### ```GET /api/memory```
 
 This endpoint is used to retrieve data from a in-memory database.
 ### Query Params

@@ -61,7 +61,7 @@ This endpoint is used to retrieve data from MongoDB by given request body.
 ---
 ### ```POST /api/in-memory```
 
-This endpoint is used to store data in a in-memory database.
+This endpoint is used to store data in an in-memory database.
 ### Request Body
 ```
 {
@@ -84,7 +84,7 @@ This endpoint is used to store data in a in-memory database.
 
 ### ```GET /api/memory```
 
-This endpoint is used to retrieve data from a in-memory database.
+This endpoint is used to retrieve data from an in-memory database.
 ### Query Params
 ```
 ?key=key1

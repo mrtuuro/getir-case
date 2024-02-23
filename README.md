@@ -1,7 +1,7 @@
 ## Getting Started
 
 This project contains 3 endpoints. 1 endpoint let's us retrieve data from 
-MongoDB. Other 2 endpoints uses in-memory database. One is to store data and the other one is to retrieve data.
+MongoDB. Other 2 endpoints uses in-memory database. One is to store and the other one is to retrieve data.
 
 ## Requirements
 
